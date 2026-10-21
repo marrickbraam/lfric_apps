@@ -27,13 +27,14 @@ module jules_physics_init_mod
                               fixed_sea_albedo_in => fixed_sea_albedo,         &
                               l_hapke_soil_in => l_hapke_soil,                 &
                               l_partition_albsoil_in => l_partition_albsoil,   &
+                              l_niso_direct_in => l_niso_direct,               &
                               ratio_soilalb_in => ratio_albsoil,               &
                               swdn_frac_albsoil_in => swdn_frac_albsoil,       &
                               i_sea_alb_method_in => i_sea_alb_method,         &
                               i_sea_alb_method_barker,                         &
                               i_sea_alb_method_jin,                            &
                               i_sea_alb_method_fixed,                          &
-                              l_niso_direct_in => l_niso_direct,               &
+                              i_sea_alb_method_ice,                  &
                               l_sea_alb_var_chl_in => l_sea_alb_var_chl,       &
                               l_spec_alb_bs_in => l_spec_alb_bs,               &
                               l_albedo_obs_in => l_albedo_obs
@@ -278,6 +279,8 @@ contains
         i_sea_alb_method = 3
       case(i_sea_alb_method_fixed)
         i_sea_alb_method = 4
+      case(i_sea_alb_method_ice)
+        i_sea_alb_method = 5
     end select
     l_albedo_obs        = l_albedo_obs_in
     l_embedded_snow     = .true.
