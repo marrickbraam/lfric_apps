@@ -15,7 +15,8 @@ module jules_physics_init_mod
   use jules_radiation_config_mod, only :                                       &
                               i_sea_alb_method_barker,                         &
                               i_sea_alb_method_jin,                            &
-                              i_sea_alb_method_fixed
+                              i_sea_alb_method_fixed,                          &
+                              i_sea_alb_method_ice
   use jules_sea_seaice_config_mod, only :                                      &
                               iseasurfalg_coare,                               &
                               iseasurfalg_surf_div,                            &
@@ -220,6 +221,8 @@ contains
         i_sea_alb_method = 3
       case(i_sea_alb_method_fixed)
         i_sea_alb_method = 4
+      case(i_sea_alb_method_ice)
+        i_sea_alb_method = 5
     end select
     l_albedo_obs        = config%jules_radiation%l_albedo_obs()
     l_embedded_snow     = .true.
